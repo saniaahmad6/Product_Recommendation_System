@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/fragment1">
+
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.sacoding.prs.ui.fragments.Fragment1"
+        android:label="Fragment1" >
+        <action
+            android:id="@+id/action_fragment1_to_fragment_User"
+            app:destination="@id/fragment_User" />
+        <argument
+            android:name="user_id"
+            app:argType="string"
+            android:defaultValue='"19"' />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.sacoding.prs.ui.fragments.SupportFragment"
+        android:label="Fragment2" />
+    <fragment
+        android:id="@+id/fragment_User"
+        android:name="com.sacoding.prs.ui.fragments.Fragment_User"
+        android:label="fragment__user"
+        tools:layout="@layout/fragment__user" >
+        <argument
+            android:name="user_id"
+            app:argType="string"
+            android:defaultValue='"19"' />
+        <action
+            android:id="@+id/action_fragment_User_to_recommendedProductsFragment"
+            app:destination="@id/recommendedProductsFragment" />
+        <action
+            android:id="@+id/action_fragment_User_to_fragmentAllArticles"
+            app:destination="@id/fragmentAllArticles" />
+        <action
+            android:id="@+id/action_fragment_User_to_fragmentHistory"
+            app:destination="@id/fragmentHistory" />
+        <action
+            android:id="@+id/action_fragment_User_to_fragmentSearchByCategories"
+            app:destination="@id/fragmentSearchByCategories" />
+    </fragment>
+    <fragment
+        android:id="@+id/recommendedProductsFragment"
+        android:name="com.sacoding.prs.ui.fragments.RecommendedProductsFragment"
+        android:label="RecommendedProductsFragment" >
+        <argument
+            android:name="user_id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAllArticles"
+        android:name="com.sacoding.prs.ui.fragments.FragmentAllArticles"
+        android:label="FragmentAllArticles" >
+        <argument
+            android:name="user_id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHistory"
+        android:name="com.sacoding.prs.ui.fragments.FragmentHistory"
+        android:label="FragmentHistory" >
+        <argument
+            android:name="user_id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSearchByCategories"
+        android:name="com.sacoding.prs.ui.fragments.FragmentSearchByCategories"
+        android:label="FragmentSearchByCategories" >
+        <argument
+            android:name="user_id"
+            app:argType="string" />
+        <argument
+            android:name="list"
+            app:argType="com.sacoding.prs.data.models.ArrayParcleable" />
+    </fragment>
+</navigation>
